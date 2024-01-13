@@ -1,6 +1,6 @@
 package day20;
 
-public class MyDate implements Comparable {
+public class MyDate implements Comparable<MyDate> {
 
     private int year;
     private int month;
@@ -49,24 +49,39 @@ public class MyDate implements Comparable {
                 '}';
     }
 
+//    @Override
+//    public int compareTo(Object o) {
+//        if (o instanceof MyDate) {
+//            MyDate m = (MyDate) o;
+//
+//            int minusYear = this.getYear() - m.getYear();
+//            if (minusYear != 0) {
+//                return minusYear;
+//            }
+//
+//            int minusMonth = this.getMonth() - m.getMonth();
+//            if (minusMonth != 0) {
+//                return minusMonth;
+//            }
+//
+//            return this.getDay() - m.getDay();
+//        }
+//
+//        throw new RuntimeException("比較対象のオブジェクトの型が一致してない。");
+//    }
+
     @Override
-    public int compareTo(Object o) {
-        if (o instanceof MyDate) {
-            MyDate m = (MyDate) o;
-
-            int minusYear = this.getYear() - m.getYear();
-            if (minusYear != 0) {
-                return minusYear;
-            }
-
-            int minusMonth = this.getMonth() - m.getMonth();
-            if (minusMonth != 0) {
-                return minusMonth;
-            }
-
-            return this.getDay() - m.getDay();
+    public int compareTo(MyDate o) {
+        int minusYear = this.getYear() - o.getYear();
+        if (minusYear != 0) {
+            return minusYear;
         }
 
-        throw new RuntimeException("比較対象のオブジェクトの型が一致してない。");
+        int minusMonth = this.getMonth() - o.getMonth();
+        if (minusMonth != 0) {
+            return minusMonth;
+        }
+
+        return this.getDay() - o.getDay();
     }
 }

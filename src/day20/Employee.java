@@ -1,6 +1,6 @@
 package day20;
 
-public class Employee implements Comparable {
+public class Employee implements Comparable<Employee> {
 
     private String name;
     private int age;
@@ -50,15 +50,20 @@ public class Employee implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-
-        if (o instanceof Employee) {
-            Employee e = (Employee) o;
-            return this.name.compareTo(e.getName());
-        }
-
-        throw new RuntimeException("比較対象のオブジェクトの型が一致してない。");
-
+    public int compareTo(Employee o) {
+        return this.name.compareTo(o.getName());
     }
+
+    //    @Override
+//    public int compareTo(Object o) {
+//
+//        if (o instanceof Employee) {
+//            Employee e = (Employee) o;
+//            return this.name.compareTo(e.getName());
+//        }
+//
+//        throw new RuntimeException("比較対象のオブジェクトの型が一致してない。");
+//
+//    }
 }
 
