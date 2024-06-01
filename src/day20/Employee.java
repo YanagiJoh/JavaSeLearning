@@ -7,7 +7,16 @@ public class Employee implements Comparable<Employee> {
     private MyDate birthday;
 
     public Employee() {
+        System.out.println("Employee......");
+    }
 
+    public Employee(int age) {
+        this.age = age;
+    }
+
+    public Employee(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 
     public Employee(String name, int age, MyDate birthday) {
